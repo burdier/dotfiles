@@ -18,6 +18,11 @@ bindsym Control+$mod+s exec spotify
 # Quit window
 bindsym $mod+Shift+q kill
 
+#wifi set
+bindsym $mod+Shift+w exec ~/.config/rofi-wifi-menu/rofi-wifi-menu.sh
+
+# Power off
+bindsym $mod+Shift+o exec ~/.config/poweroff.sh
 # Dmenu
 bindsym $mod+d exec  "rofi   -show-icons  -drun-icon-theme -combi-modi window,drun -show combi -modi combi"
 
@@ -47,7 +52,11 @@ bindsym $mod+Shift+u exec python ./hide.py --show True
 bindsym $mod+Shift+i exec python ./hide.py --hide True
 
 
-exec --no-startup-id  xrandr --output HDMI-0  --auto --right-of eDP-1-1  
+exec --no-startup-id  xrandr --output eDP-1-1 --auto --right-of  HDMI-0  
+
+exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+
+
 # Wallpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/wallhaven-j5qzjy.jpg
 
