@@ -15,12 +15,16 @@ let maplocalleader = ','
 let g:OmniSharp_server_stdio = 1
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 "viminspector
-
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+sign define vimspectorBP text=🔴 texthl=Normal
+sign define vimspectorBPDisabled text=🔵 texthl=Normal
+sign define vimspectorPC text=🔶 texthl=SpellBad
 "OmniSharp 
 nmap <C-f><C-f><C-h> :OmniSharpHighlightTypes<CR>
 nmap <C-f><C-f><C-G> :OmniSharpFindImplementations<CR>
 nmap <C-f><C-f><C-t> :OmniSharpCodeFormat<CR>
 nmap <C-f><C-f><C-a> :OmniSharpGetCodeActions<CR>
+nmap <C-f><C-f><C-t> :OmniSharpRunTest<CR>
 "
 "custom mapping
 nmap <C-f>f :Files<CR> 
@@ -71,6 +75,7 @@ Plug 'dense-analysis/ale'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-surround'
+Plug 'puremourning/vimspector'
 Plug 'easymotion/vim-easymotion'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
