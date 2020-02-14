@@ -24,7 +24,7 @@ nmap <C-f><C-f><C-h> :OmniSharpHighlightTypes<CR>
 nmap <C-f><C-f><C-G> :OmniSharpFindImplementations<CR>
 nmap <C-f><C-f><C-t> :OmniSharpCodeFormat<CR>
 nmap <C-f><C-f><C-a> :OmniSharpGetCodeActions<CR>
-nmap <C-f><C-f><C-t> :OmniSharpRunTest<CR>
+nmap <C-f><C-f><C-u> :OmniSharpRunTest<CR>
 "
 "custom mapping
 nmap <C-f>f :Files<CR> 
