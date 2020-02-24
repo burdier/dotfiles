@@ -20,9 +20,46 @@ bindsym $mod+Shift+q kill
 
 #wifi set
 bindsym $mod+Shift+w exec ~/.config/rofi-wifi-menu/rofi-wifi-menu.sh
+#screensave
+bindsysm $mod+l+l exec "i3lock"
 
 # Power off
 bindsym $mod+Shift+o exec ~/.config/poweroff.sh
+# powroff shortcuts
+
+set $Locker i3lock \
+    -i ~/.imgs/windows-desktop.png \
+    -p win \
+    -t -u \
+    && sleep 1
+set $mode_system\
+ System (l) lock,\
+ (e) logout,\
+ (s) suspend,\
+ (h) hibernate,\
+ (r) reboot,\
+ (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+x mode "$mode_system"
+
+
+
+
+
+
+
+
+
 # Dmenu
 bindsym $mod+d exec  "rofi   -show-icons  -drun-icon-theme -combi-modi window,drun -show combi -modi combi"
 

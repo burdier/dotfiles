@@ -74,6 +74,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on':
 Plug 'dense-analysis/ale'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'luochen1990/rainbow'
+Plug 'skanehira/preview-markdown.vim'
 Plug 'tpope/vim-surround'
 Plug 'puremourning/vimspector'
 Plug 'easymotion/vim-easymotion'
