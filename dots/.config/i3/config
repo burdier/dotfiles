@@ -7,7 +7,7 @@ floating_modifier $mod
 
 # Application shortcuts
 # Terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec termite
 # Chrome
 bindsym Control+$mod+c exec chromium
 # Discord
@@ -19,6 +19,7 @@ bindsym Control+$mod+s exec spotify
 bindsym $mod+Shift+q kill
 
 #wifi set
+
 bindsym $mod+Shift+w exec ~/.config/rofi-wifi-menu/rofi-wifi-menu.sh
 #screensave
 bindsysm $mod+l+l exec "i3lock"
