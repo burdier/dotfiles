@@ -14,6 +14,25 @@ let mapleader = "\<space>"
 let maplocalleader = ','
 let g:OmniSharp_server_stdio = 1
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+
+" make test commands execute using dispatch.vim
+let test#strategy = "dispatch"
+
+
+let test#strategy = {
+  \ 'nearest': 'neovim',
+  \ 'file':    'dispatch',
+  \ 'suite':   'basic',
+\}
+
 "viminspector
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 sign define vimspectorBP text=🔴 texthl=Normal
@@ -45,6 +64,16 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 "you completeme
 au FileType c,cpp nnoremap <buffer> <c-]> :YcmCompleter GoTo<CR>
 
+
+" For Neovim 0.1.3 and 0.1.4
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Or if you have Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+
 " Fix files with prettier, and then ESLint.
 " Equivalent to the above.
 let g:ale_completion_enabled = 1
@@ -59,7 +88,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'sbdchd/neoformat'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'mhartington/oceanic-next'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'neomake/neomake'
 Plug 'tpope/vim-commentary'
@@ -81,7 +110,16 @@ Plug 'easymotion/vim-easymotion'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'janko/vim-test'
+Plug 'preservim/nerdcommenter'
+Plug 'pangloss/vim-javascript'
+Plug 'heavenshell/vim-jsdoc',{'for':'javascript','tag':'1.0.0'}
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 call plug#end()
+"
 "  neomake
 " When writing a buffer (no delay).
 call neomake#configure#automake('w')
@@ -93,10 +131,20 @@ call neomake#configure#automake('rw', 1000)
 " normal mode (after 500ms; no delay when writing).
 call neomake#configure#automake('nrwi', 500)
 
-try
-  colorscheme dracula
-catch
-endtry
+"guttergit 
+"
+"
+
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
+
+" Theme
+syntax enable
+colorscheme OceanicNext
+
 let g:molokai_original = 1
 
 set updatetime=200

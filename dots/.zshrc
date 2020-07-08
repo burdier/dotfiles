@@ -12,12 +12,29 @@ echo Hello I am a function
 alias install="sudo apt-get install"
 alias -g mcs="mono"
 alias -g v="nvim"
-alias -g connectvpn='openfortivpn 190.94.3.193:10444 -u lburdier --trusted-cert 294314625c451d6017d322767ce1df61644a6231707ad523028ec73497b8cd3b '
+alias -g vim="nvim"
+
 # Path to your oh-my-zsh installation.
-export ZSH="/home/bursoft/.oh-my-zsh"
+
+export ASPNETCORE_URLS=http://+:8090
+export ASPNETCORE_ENVIRONMENT=Development
+export WORKER_STATE=http://192.168.20.15:8000/api/
+
+
+export g PATH="$PATH:/home/burdier/flutter/flutter/bin"
+export g ZSH="/home/burdier/.oh-my-zsh"
 export EDITOR=nvim
 export PATH=/usr/local/flutter/bin:$PATH
+export NVM_DIR="$HOME/.nvm" 
+export g  PATH="$PATH:~/.dotnet/tools"
+export g PATH="$PATH:$HOME/.dotnet"
+export g DOTNET_ROOT=/opt/dotnet
 
+
+#export g PATH="$PATH:/home/burdier/.dotnet/tools"
+
+#export g PATH="$PATH:/home/burdier/.dotnet/tools/.store/dotnet-ef/3.1.3/dotnet-ef/3.1.3/tools/netcoreapp3.1/any/"
+#export DOTNET_ROOT="/opt/dotnet"
 #fzf improve:
 
 # fh - repeat history
@@ -37,8 +54,7 @@ fd() {
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
+ZSH_THEME="spaceship"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -46,8 +62,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-#CASE_SENSITIVE="false"
-
+#CASE_SENSITIVE="false" 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
@@ -145,3 +160,7 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
