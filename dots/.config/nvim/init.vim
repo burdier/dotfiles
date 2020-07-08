@@ -131,6 +131,12 @@ call neomake#configure#automake('rw', 1000)
 " normal mode (after 500ms; no delay when writing).
 call neomake#configure#automake('nrwi', 500)
 
+
+"nerdtree config
+"
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 "guttergit 
 "
 "
