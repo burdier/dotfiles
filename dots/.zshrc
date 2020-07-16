@@ -13,7 +13,7 @@ alias install="sudo apt-get install"
 alias -g mcs="mono"
 alias -g v="nvim"
 alias -g vim="nvim"
-
+alias -g vpnlab="sudo openfortivpn -c /etc/openfortivpn/config"
 # Path to your oh-my-zsh installation.
 
 export ASPNETCORE_URLS=http://+:8090
