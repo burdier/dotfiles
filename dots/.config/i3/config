@@ -11,7 +11,7 @@ bindsym $mod+Return exec termite
 # Chrome
 bindsym Control+$mod+c exec chromium
 # Discord
-bindsym Control+$mod+d exec discord
+bindsym Control+$mod+d exec flatpak run com.discordapp.Discord
 # Spotify
 bindsym Control+$mod+s exec spotify
 
@@ -58,7 +58,25 @@ bindsym $mod+Shift+x mode "$mode_system"
 
 
 
+#{{{ triggers
 
+for_window [class="Google-chrome"] move to workspace $ws2
+for_window [class="discord"] move to workspace $ws1
+for_window [class="Telegram"] move to workspace $ws1
+for_window [class="Slack"] move to workspace $ws3
+for_window [class="Spotify"] move to workspace $ws4
+for_window [class="termite" instance="stp"] move to workspace $ws4
+for_window [class="Popcorn-Time"] move to workspace $ws6
+for_window [title="YouTube "] move to workspace $ws6
+for_window [title="video0 - mpv"] floating enable, border pixel 0
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+for_window [class="Termite" instance="floating"] floating enable, border pixel 2
+for_window [class="Termite" instance="floating-calendar"] \
+resize set 620 636, move up 100 px, move right 50 px
+
+#}}}
 
 # Dmenu
 bindsym $mod+d exec  "rofi   -show-icons  -drun-icon-theme -combi-modi window,drun -show combi -modi combi"

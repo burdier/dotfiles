@@ -14,7 +14,11 @@ let mapleader = "\<space>"
 let maplocalleader = ','
 let g:OmniSharp_server_stdio = 1
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
+ 
+"AutoCmd C#
+au CursorHold *.cs :OmniSharpHighlightTypes 
+let g:ale_linters = { 'cs': ['OmniSharp'] }
+autocmd CursorHold *.cs OmniSharpTypeLookup
 
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
 nmap <silent> t<C-n> :TestNearest<CR>
@@ -22,6 +26,10 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
+
+"coc prettier 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>f  <Plug>(coc-format-selected)
 
 " make test commands execute using dispatch.vim
 let test#strategy = "dispatch"
@@ -117,7 +125,7 @@ Plug 'heavenshell/vim-jsdoc',{'for':'javascript','tag':'1.0.0'}
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
+Plug 'thaerkh/vim-workspace'
 call plug#end()
 "
 "  neomake
