@@ -18,9 +18,15 @@ bindsym Control+$mod+s exec spotify
 # Quit window
 bindsym $mod+Shift+q kill
 
+#save layout
+
+bindsym $mod+Shift+f exec "~/symfiles/dots/.config/i3/save-layaout.sh"
+
+
 #wifi set
 
 bindsym $mod+Shift+w exec "~/symfiles/dots/.config/rofi-wifi-menu/rofi-wifi-menu.sh"
+
 #screensave
 bindsysm $mod+l+l exec "i3lock"
 
@@ -29,7 +35,7 @@ bindsym $mod+Shift+o exec ~/.config/poweroff.sh
 # powroff shortcuts
 
 set $Locker i3lock \
-    -i ~/.imgs/windows-desktop.png \
+    -i ~/holo.jpg \
     -p win \
     -t -u \
     && sleep 1
@@ -60,6 +66,7 @@ bindsym $mod+Shift+x mode "$mode_system"
 
 #{{{ triggers
 
+for_window [title="Microsoft Teams"] move to workspace $ws1
 for_window [class="Google-chrome"] move to workspace $ws2
 for_window [class="discord"] move to workspace $ws1
 for_window [class="Telegram"] move to workspace $ws1
@@ -109,11 +116,10 @@ bindsym $mod+Shift+i exec python ./hide.py --hide True
 
 exec --no-startup-id  xrandr --output HDMI-1-1  --auto --right-of   eDP1
 
-exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-
+exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsetti
 
 # Wallpaper
-exec --no-startup-id feh --bg-scale ~/Imágenes/wallhaven-lmxmxy.png
+exec --no-startup-id feh --bg-scale ~/holo.png
 
 # Polybar
 exec --no-startup-id sh ~/.config/polybar/launch.sh
@@ -241,6 +247,20 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# i3 move a workspace to another monitor (multi monitor setup)
+mode "move_workspace" {
+ bindsym Up move workspace to output up
+ bindsym Down move workspace to output down
+ bindsym Left move workspace to output left
+ bindsym Up move workspace to output up
+
+ bindsym Escape mode "default"
+}
+
+bindsym $mod+o mode "move_workspace"
+
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

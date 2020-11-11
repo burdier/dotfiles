@@ -9,7 +9,7 @@ set cursorline
 so ~/.config/nvim/coc.vim
 
 " Change <leader> key to space
-let mapleader = "\<space>"
+let mapleader = ","
 " Change <localleader> key to backslash i.e. \
 let maplocalleader = ','
 let g:OmniSharp_server_stdio = 1
@@ -41,6 +41,13 @@ let test#strategy = {
   \ 'suite':   'basic',
 \}
 
+" Copy to clipboard
+nnoremap <C-c> "+y
+
+" Copy to clipboard
+vnoremap <C-c> "+y
+
+
 "viminspector
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 sign define vimspectorBP text=🔴 texthl=Normal
@@ -52,15 +59,15 @@ nmap <C-f><C-f><C-G> :OmniSharpFindImplementations<CR>
 nmap <C-f><C-f><C-t> :OmniSharpCodeFormat<CR>
 nmap <C-f><C-f><C-a> :OmniSharpGetCodeActions<CR>
 nmap <C-f><C-f><C-u> :OmniSharpRunTest<CR>
-"
-"custom mapping
-nmap <C-f>f :Files<CR> 
 
+"custom mapping
+nmap <leader><leader>f :Files<CR> 
+set expandtab
 " In ~/.vim/ftplugin/javascript.vim, or somewhere similar.
 
 " NerdTree Toggle
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-
+noremap <leader>pv :NERDTreeFind<CR>
 " Easy motion
 nmap <silent> <leader><leader>w <Plug>(easymotion-bd-w)
 nmap <silent> <leader><leader>e <Plug>(easymotion-bd-e)
@@ -96,6 +103,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'sbdchd/neoformat'
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'neomake/neomake'
