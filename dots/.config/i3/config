@@ -114,12 +114,12 @@ bindsym $mod+Shift+u exec python ./hide.py --show True
 bindsym $mod+Shift+i exec python ./hide.py --hide True
 
 
-exec --no-startup-id  xrandr --output HDMI-1-1  --auto --right-of   eDP1
+exec --no-startup-id xrandr --output eDP-1-1 --auto  --right-of   HDMI-0
 
 exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsetti
 
 # Wallpaper
-exec --no-startup-id feh --bg-scale ~/holo.png
+exec --no-startup-id feh --bg-scale ~/Pictures/wallhaven-57llk7.jpg
 
 # Polybar
 exec --no-startup-id sh ~/.config/polybar/launch.sh

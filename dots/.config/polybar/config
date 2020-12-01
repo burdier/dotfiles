@@ -28,7 +28,7 @@ alert = #bd2c40
 ;{{{ bar/main
 
 [bar/example]
-monitor = ${env:MONITOR:HDMI-1-1}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 27
 fixed-center = false
