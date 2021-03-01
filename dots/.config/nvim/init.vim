@@ -6,6 +6,8 @@ set nu
 set relativenumber
 set tabstop=4
 set cursorline
+set so=999
+set scrolloff=4
 so ~/.config/nvim/coc.vim
 so ~/.config/nvim/themes/airline.vim
 " Change <leader> key to space
@@ -15,6 +17,8 @@ let maplocalleader = ','
 let g:OmniSharp_server_stdio = 1
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
  
+" set rainbow color
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 "AutoCmd C#
 au CursorHold *.cs :OmniSharpHighlightTypes 
 let g:ale_linters = { 'cs': ['OmniSharp'] }
@@ -55,8 +59,8 @@ sign define vimspectorBPDisabled text=🔵 texthl=Normal
 sign define vimspectorPC text=🔶 texthl=SpellBad
 "OmniSharp 
 nmap <C-f><C-f><C-h> :OmniSharpHighlightTypes<CR>
-nmap <C-f><C-f><C-G> :OmniSharpFindImplementations<CR>
-nmap <C-f><C-f><C-t> :OmniSharpCodeFormat<CR>
+nmap <leader>gd :OmniSharpFindImplementations<CR>
+nmap <leader>cf :OmniSharpCodeFormat<CR>
 nmap <C-f><C-f><C-a> :OmniSharpGetCodeActions<CR>
 nmap <C-f><C-f><C-u> :OmniSharpRunTest<CR>
 
@@ -99,9 +103,10 @@ let g:ale_fixers = {
 \   'c#': ['prettier'],
 \}
 call plug#begin('~/.local/share/nvim/plugged')
-
+Plug 'arzg/vim-colors-xcode'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'luochen1990/rainbow'
 Plug 'sbdchd/neoformat'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'mhartington/oceanic-next'
@@ -211,8 +216,8 @@ let g:gitgutter_sign_modified_removed = '-'
 
 " Theme
 syntax enable
-colorscheme OceanicNext
-
+" colorscheme OceanicNext
+colorscheme xcodedark
 let g:molokai_original = 1
 
 set updatetime=200
